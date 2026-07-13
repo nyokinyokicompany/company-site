@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const youtubeUrl = "https://www.youtube.com/@hyakku_kuchihate";
 const lineUrl = "https://store.line.me/stickershop/author/6197622/ja";
 
@@ -33,8 +35,14 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="logo" href="#top" aria-label="ページの先頭へ">
-          <span className="logo-sprout" aria-hidden="true">●</span>
-          <span>ニョキニョキ<br />カンパニー</span>
+          <Image
+            className="company-logo"
+            src="/nyokinyoki-company-logo.png"
+            alt="ニョキニョキカンパニー"
+            width={84}
+            height={84}
+            priority
+          />
         </a>
         <nav aria-label="メインメニュー">
           <a href="#about">わたしたち</a>
@@ -121,7 +129,14 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-logo">ニョキニョキ<br />カンパニー <span>🌱</span></div>
+        <div className="footer-logo">
+          <Image
+            src="/nyokinyoki-company-logo.png"
+            alt="ニョキニョキカンパニー"
+            width={132}
+            height={132}
+          />
+        </div>
         <p>ゲームとキャラクターで、<br />毎日にちいさな「おもしろい」を。</p>
         <p className="copyright">© 2026 NYOKI NYOKI COMPANY</p>
       </footer>

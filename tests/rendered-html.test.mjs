@@ -26,3 +26,9 @@ test("小さい画面向けの表示調整がある", () => {
   assert.match(styles, /@media \(max-width: 560px\)/);
   assert.match(styles, /grid-template-columns: 1fr/);
 });
+
+test("会社ロゴがページ上部と下部に表示される", () => {
+  const logoMatches = page.match(/\/nyokinyoki-company-logo\.png/g) ?? [];
+  assert.equal(logoMatches.length, 2);
+  assert.match(page, /alt="ニョキニョキカンパニー"/);
+});
