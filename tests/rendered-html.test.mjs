@@ -1,0 +1,28 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+
+const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+
+test("会社名と主要な活動内容が用意されている", () => {
+  assert.match(page, /ニョキニョキ/);
+  assert.match(page, /ゲーム実況/);
+  assert.match(page, /LINEスタンプ/);
+});
+
+test("YouTubeとLINE STOREへのリンクが正しい", () => {
+  assert.match(page, /youtube\.com\/@hyakku_kuchihate/);
+  assert.match(page, /store\.line\.me\/stickershop\/author\/6197622\/ja/);
+});
+
+test("日本語と共有画像の設定がある", () => {
+  assert.match(layout, /<html lang="ja">/);
+  assert.match(layout, /\/og\.png/);
+});
+
+test("小さい画面向けの表示調整がある", () => {
+  assert.match(styles, /@media \(max-width: 560px\)/);
+  assert.match(styles, /grid-template-columns: 1fr/);
+});
