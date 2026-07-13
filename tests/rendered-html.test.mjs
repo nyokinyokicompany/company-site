@@ -35,6 +35,8 @@ test("会社ロゴがページ上部と下部に表示される", () => {
 });
 
 test("お問い合わせメールが用意されている", () => {
-  assert.match(page, /mailto:nyokinyokicompany@gmail\.com/);
+  const emailLinks = page.match(/mailto:nyokinyokicompany@gmail\.com/g) ?? [];
+  assert.equal(emailLinks.length, 2);
+  assert.match(page, /メールでお問い合わせ/);
   assert.match(page, />お問い合わせ</);
 });

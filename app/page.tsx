@@ -44,6 +44,7 @@ export default function Home() {
         <nav aria-label="メインメニュー">
           <a href="#about">わたしたち</a>
           <a href="#activity">やっていること</a>
+          <a className="nav-email" href="mailto:nyokinyokicompany@gmail.com">メールでお問い合わせ</a>
           <a className="nav-contact" href="#links">作品を見る</a>
         </nav>
       </header>
