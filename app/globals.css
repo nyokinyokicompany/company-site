@@ -95,7 +95,10 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 
 footer { background: var(--ink); color: white; min-height: 250px; padding: 55px clamp(24px, 7vw, 110px); display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 40px; }
 .footer-logo img { width: 132px; height: 132px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(255, 255, 255, .12)); }
-footer > p { font-size: 13px; line-height: 1.8; margin: 0; }
+.footer-contact p { font-size: 13px; line-height: 1.8; margin: 0 0 18px; }
+.footer-contact a { display: inline-flex; flex-direction: column; gap: 4px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.footer-contact a:hover { color: var(--yellow); }
+.footer-contact small { color: var(--blue); font-size: 10px; letter-spacing: .12em; text-decoration: none; }
 .copyright { font-size: 10px; letter-spacing: .1em; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker div { animation: none; } * { transition: none !important; } }

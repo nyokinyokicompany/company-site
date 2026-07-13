@@ -33,3 +33,8 @@ test("会社ロゴがページ上部と下部に表示される", () => {
   assert.match(page, /alt="ニョキニョキカンパニー"/);
   assert.doesNotMatch(page, /next\/image/);
 });
+
+test("お問い合わせメールが用意されている", () => {
+  assert.match(page, /mailto:nyokinyokicompany@gmail\.com/);
+  assert.match(page, />お問い合わせ</);
+});

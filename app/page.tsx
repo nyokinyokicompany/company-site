@@ -134,7 +134,13 @@ export default function Home() {
             height={132}
           />
         </div>
-        <p>ゲームとキャラクターで、<br />毎日にちいさな「おもしろい」を。</p>
+        <div className="footer-contact">
+          <p>ゲームとキャラクターで、<br />毎日にちいさな「おもしろい」を。</p>
+          <a href="mailto:nyokinyokicompany@gmail.com">
+            <small>お問い合わせ</small>
+            nyokinyokicompany@gmail.com
+          </a>
+        </div>
         <p className="copyright">© 2026 NYOKI NYOKI COMPANY</p>
       </footer>
     </main>
