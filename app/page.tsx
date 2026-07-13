@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const youtubeUrl = "https://www.youtube.com/@hyakku_kuchihate";
 const lineUrl = "https://store.line.me/stickershop/author/6197622/ja";
 
@@ -35,13 +33,12 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="logo" href="#top" aria-label="ページの先頭へ">
-          <Image
+          <img
             className="company-logo"
             src="/nyokinyoki-company-logo.png"
             alt="ニョキニョキカンパニー"
             width={84}
             height={84}
-            priority
           />
         </a>
         <nav aria-label="メインメニュー">
@@ -130,7 +127,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-logo">
-          <Image
+          <img
             src="/nyokinyoki-company-logo.png"
             alt="ニョキニョキカンパニー"
             width={132}
