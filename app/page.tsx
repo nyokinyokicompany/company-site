@@ -1,4 +1,5 @@
 import newsData from "./news-data.json";
+import MiniGame from "./mini-game";
 
 const youtubeUrl = "https://www.youtube.com/@hyakku_kuchihate";
 const lineUrl = "https://store.line.me/stickershop/author/6197622/ja";
@@ -57,6 +58,7 @@ export default function Home() {
           <a href="#news">新着</a>
           <a href="#about">わたしたち</a>
           <a href="#activity">やっていること</a>
+          <a href="#game">ミニゲーム</a>
           <a className="nav-email" href="mailto:nyokinyokicompany@gmail.com">メールでお問い合わせ</a>
           <a className="nav-contact" href="#links">作品を見る</a>
         </nav>
@@ -147,6 +149,23 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="game-section" id="game">
+        <div className="game-intro">
+          <p className="section-kicker">MINI GAME</p>
+          <h2>ニョキっと<br />タッチ！</h2>
+          <p className="game-lead">20秒で、出てきた芽を<br />何本見つけられるかな？</p>
+          <div className="game-howto">
+            <span>1</span>
+            <p><strong>「あそぶ！」でスタート</strong><br />芽が出た場所をタッチしよう。</p>
+          </div>
+          <div className="game-howto">
+            <span>2</span>
+            <p><strong>パソコンは数字キーでもOK</strong><br />マスと同じ1〜9キーで遊べます。</p>
+          </div>
+        </div>
+        <MiniGame />
       </section>
 
       <section className="links" id="links">

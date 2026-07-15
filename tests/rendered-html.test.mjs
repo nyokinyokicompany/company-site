@@ -5,6 +5,7 @@ import test from "node:test";
 const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
 const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+const miniGame = await readFile(new URL("../app/mini-game.tsx", import.meta.url), "utf8");
 const news = JSON.parse(await readFile(new URL("../app/news-data.json", import.meta.url), "utf8"));
 
 test("会社名と主要な活動内容が用意されている", () => {
@@ -63,4 +64,13 @@ test("新着の自動更新処理が設定されている", async () => {
   assert.match(updater, /feeds\/videos\.xml/);
   assert.match(updater, /stickershop\/author\/6197622/);
   assert.match(workflow, /cron:/);
+});
+
+test("サイト内でミニゲームを遊べる", () => {
+  assert.match(page, /id="game"/);
+  assert.match(page, /ニョキっと/);
+  assert.match(page, /<MiniGame \/>/);
+  assert.match(miniGame, /GAME_DURATION_SECONDS/);
+  assert.match(miniGame, /\^\[1-9\]\$/);
+  assert.match(styles, /\.game-board/);
 });
