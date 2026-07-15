@@ -62,7 +62,22 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 .ticker div { width: max-content; animation: move 28s linear infinite; }
 @keyframes move { to { transform: translateX(-33.333%); } }
 
-.about, .activity, .links { padding: clamp(75px, 9vw, 130px) clamp(24px, 7vw, 110px); }
+.news, .about, .activity, .links { padding: clamp(75px, 9vw, 130px) clamp(24px, 7vw, 110px); }
+.news { background: var(--blue); border-bottom: var(--line); }
+.news-heading { margin-bottom: 42px; }
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.news-card { background: white; border: var(--line); border-radius: 24px; overflow: hidden; box-shadow: 7px 7px 0 var(--ink); transition: transform .2s; }
+.news-card:hover { transform: translate(-3px, -3px); }
+.news-image-wrap { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: var(--line); background: var(--yellow); }
+.news-card.line .news-image-wrap { background: var(--green); }
+.news-image-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.news-card.line .news-image-wrap img { object-fit: contain; padding: 14px; }
+.news-image-wrap > span { position: absolute; left: 12px; bottom: 12px; padding: 7px 10px; border: 2px solid var(--ink); border-radius: 99px; background: var(--yellow); font-size: 10px; letter-spacing: .1em; }
+.news-card.line .news-image-wrap > span { background: var(--green); }
+.news-body { min-height: 176px; padding: 20px; display: flex; flex-direction: column; }
+.news-body time { font-size: 10px; letter-spacing: .1em; color: #e45279; }
+.news-body strong { margin-top: 12px; font-size: 17px; line-height: 1.55; }
+.news-arrow { margin-top: auto; align-self: flex-end; font-size: 12px; }
 .about { background: white; border-bottom: var(--line); }
 .section-kicker { color: #e45279; margin: 0 0 22px; }
 .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 9vw; align-items: end; }
@@ -109,6 +124,7 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
   .hero-copy { padding: 70px 28px 60px; }
   .hero-stage { border-left: 0; border-top: var(--line); min-height: 590px; }
   .about-grid, .links { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr 1fr; }
   .activity-grid { grid-template-columns: 1fr; gap: 34px; }
   .activity-card { min-height: 370px; transform: none !important; }
   .activity-icon { height: 120px; }
@@ -132,4 +148,5 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
   .about h2 br { display: none; }
   .link-list a { grid-template-columns: 52px 1fr auto; padding: 15px; gap: 12px; }
   .link-icon { width: 48px; height: 48px; }
+  .news-grid { grid-template-columns: 1fr; }
 }

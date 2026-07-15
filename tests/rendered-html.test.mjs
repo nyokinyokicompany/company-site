@@ -5,6 +5,7 @@ import test from "node:test";
 const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
 const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+const news = JSON.parse(await readFile(new URL("../app/news-data.json", import.meta.url), "utf8"));
 
 test("会社名と主要な活動内容が用意されている", () => {
   assert.match(page, /ニョキニョキ/);
@@ -46,4 +47,20 @@ test("お問い合わせメールが用意されている", () => {
   assert.equal(emailLinks.length, 2);
   assert.match(page, /メールでお問い合わせ/);
   assert.match(page, />お問い合わせ</);
+});
+
+test("YouTubeとLINEスタンプの新着欄がある", () => {
+  assert.match(page, /id="news"/);
+  assert.match(page, /LATEST NEWS/);
+  assert.ok(news.items.some((item) => item.kind === "youtube"));
+  assert.ok(news.items.some((item) => item.kind === "line"));
+  assert.match(styles, /\.news-grid/);
+});
+
+test("新着の自動更新処理が設定されている", async () => {
+  const updater = await readFile(new URL("../scripts/update-news.mjs", import.meta.url), "utf8");
+  const workflow = await readFile(new URL("../.github/workflows/update-news.yml", import.meta.url), "utf8");
+  assert.match(updater, /feeds\/videos\.xml/);
+  assert.match(updater, /stickershop\/author\/6197622/);
+  assert.match(workflow, /cron:/);
 });

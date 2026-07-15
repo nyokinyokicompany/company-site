@@ -1,3 +1,5 @@
+import newsData from "./news-data.json";
+
 const youtubeUrl = "https://www.youtube.com/@hyakku_kuchihate";
 const lineUrl = "https://store.line.me/stickershop/author/6197622/ja";
 
@@ -28,6 +30,16 @@ const activities = [
   },
 ];
 
+function formatDate(date: string | null) {
+  if (!date) return "NEW STICKER";
+  return new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "Asia/Tokyo",
+  }).format(new Date(date));
+}
+
 export default function Home() {
   return (
     <main>
@@ -42,6 +54,7 @@ export default function Home() {
           />
         </a>
         <nav aria-label="メインメニュー">
+          <a href="#news">新着</a>
           <a href="#about">わたしたち</a>
           <a href="#activity">やっていること</a>
           <a className="nav-email" href="mailto:nyokinyokicompany@gmail.com">メールでお問い合わせ</a>
@@ -84,6 +97,28 @@ export default function Home() {
 
       <section className="ticker" aria-hidden="true">
         <div>PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW!</div>
+      </section>
+
+      <section className="news" id="news">
+        <div className="section-heading news-heading">
+          <div><p className="section-kicker">LATEST NEWS</p><h2>新着</h2></div>
+          <p>YouTubeとLINEスタンプの<br />新しい作品をお知らせします。</p>
+        </div>
+        <div className="news-grid">
+          {newsData.items.map((item) => (
+            <a className={`news-card ${item.kind}`} href={item.url} target="_blank" rel="noreferrer" key={`${item.kind}-${item.id}`}>
+              <div className="news-image-wrap">
+                <img src={item.image} alt="" loading="lazy" />
+                <span>{item.kind === "youtube" ? "YOUTUBE" : "LINE STAMP"}</span>
+              </div>
+              <div className="news-body">
+                <time dateTime={item.published ?? undefined}>{formatDate(item.published)}</time>
+                <strong>{item.title}</strong>
+                <span className="news-arrow">見る ↗</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </section>
 
       <section className="about" id="about">
