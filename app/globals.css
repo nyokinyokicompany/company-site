@@ -36,6 +36,7 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 .button { border: var(--line); border-radius: 99px; padding: 16px 22px; display: inline-flex; gap: 24px; align-items: center; transition: transform .2s; font-size: 14px; }
 .button-dark { color: white; background: var(--ink); }
 .button-light { background: white; }
+.button-game { background: var(--green); }
 .button span { font-size: 20px; }
 
 .hero-stage { position: relative; background-color: var(--blue); background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px); background-size: 26px 26px; border-left: var(--line); min-height: 690px; }

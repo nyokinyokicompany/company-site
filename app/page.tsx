@@ -72,6 +72,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button button-dark" href={youtubeUrl} target="_blank" rel="noreferrer">YouTubeを見る <span>↗</span></a>
             <a className="button button-light" href={lineUrl} target="_blank" rel="noreferrer">LINEスタンプを見る <span>↗</span></a>
+            <a className="button button-game" href="#game">ミニゲームで遊ぶ <span>↓</span></a>
           </div>
         </div>
 
@@ -99,6 +100,23 @@ export default function Home() {
 
       <section className="ticker" aria-hidden="true">
         <div>PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW!</div>
+      </section>
+
+      <section className="game-section" id="game">
+        <div className="game-intro">
+          <p className="section-kicker">MINI GAME</p>
+          <h2>ニョキっと<br />タッチ！</h2>
+          <p className="game-lead">20秒で、出てきた芽を<br />何本見つけられるかな？</p>
+          <div className="game-howto">
+            <span>1</span>
+            <p><strong>「あそぶ！」でスタート</strong><br />芽が出た場所をタッチしよう。</p>
+          </div>
+          <div className="game-howto">
+            <span>2</span>
+            <p><strong>パソコンは数字キーでもOK</strong><br />マスと同じ1〜9キーで遊べます。</p>
+          </div>
+        </div>
+        <MiniGame />
       </section>
 
       <section className="news" id="news">
@@ -149,23 +167,6 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="game-section" id="game">
-        <div className="game-intro">
-          <p className="section-kicker">MINI GAME</p>
-          <h2>ニョキっと<br />タッチ！</h2>
-          <p className="game-lead">20秒で、出てきた芽を<br />何本見つけられるかな？</p>
-          <div className="game-howto">
-            <span>1</span>
-            <p><strong>「あそぶ！」でスタート</strong><br />芽が出た場所をタッチしよう。</p>
-          </div>
-          <div className="game-howto">
-            <span>2</span>
-            <p><strong>パソコンは数字キーでもOK</strong><br />マスと同じ1〜9キーで遊べます。</p>
-          </div>
-        </div>
-        <MiniGame />
       </section>
 
       <section className="links" id="links">
