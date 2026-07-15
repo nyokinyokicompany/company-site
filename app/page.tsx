@@ -35,7 +35,7 @@ export default function Home() {
         <a className="logo" href="#top" aria-label="ページの先頭へ">
           <img
             className="company-logo"
-            src="/nyokinyoki-company-logo.png"
+            src="./nyokinyoki-company-logo.png"
             alt="ニョキニョキカンパニー"
             width={84}
             height={84}
@@ -129,7 +129,7 @@ export default function Home() {
       <footer>
         <div className="footer-logo">
           <img
-            src="/nyokinyoki-company-logo.png"
+            src="./nyokinyoki-company-logo.png"
             alt="ニョキニョキカンパニー"
             width={132}
             height={132}

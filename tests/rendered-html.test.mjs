@@ -28,10 +28,17 @@ test("小さい画面向けの表示調整がある", () => {
 });
 
 test("会社ロゴがページ上部と下部に表示される", () => {
-  const logoMatches = page.match(/\/nyokinyoki-company-logo\.png/g) ?? [];
+  const logoMatches = page.match(/\.\/nyokinyoki-company-logo\.png/g) ?? [];
   assert.equal(logoMatches.length, 2);
   assert.match(page, /alt="ニョキニョキカンパニー"/);
   assert.doesNotMatch(page, /next\/image/);
+});
+
+test("GitHub Pages向けの静的公開設定がある", async () => {
+  const config = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+  assert.match(config, /output: "export"/);
+  assert.match(config, /basePath: isGitHubPages \? "\/company-site"/);
+  assert.doesNotMatch(layout, /next\/headers/);
 });
 
 test("お問い合わせメールが用意されている", () => {
