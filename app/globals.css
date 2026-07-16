@@ -63,7 +63,7 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 .ticker div { width: max-content; animation: move 28s linear infinite; }
 @keyframes move { to { transform: translateX(-33.333%); } }
 
-.news, .about, .activity, .game-section, .links { padding: clamp(75px, 9vw, 130px) clamp(24px, 7vw, 110px); }
+.news, .coming-soon, .about, .activity, .game-section, .links { padding: clamp(75px, 9vw, 130px) clamp(24px, 7vw, 110px); }
 .news { background: var(--blue); border-bottom: var(--line); }
 .news-heading { margin-bottom: 42px; }
 .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -79,6 +79,21 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 .news-body time { font-size: 10px; letter-spacing: .1em; color: #e45279; }
 .news-body strong { margin-top: 12px; font-size: 17px; line-height: 1.55; }
 .news-arrow { margin-top: auto; align-self: flex-end; font-size: 12px; }
+.coming-soon { position: relative; background: var(--pink); border-bottom: var(--line); overflow: hidden; }
+.coming-soon-label { position: absolute; top: clamp(24px, 4vw, 54px); right: clamp(24px, 7vw, 110px); z-index: 1; padding: 12px 19px; border: var(--line); border-radius: 99px; background: var(--yellow); box-shadow: 4px 4px 0 var(--ink); font-size: clamp(18px, 2.4vw, 30px); font-weight: 900; transform: rotate(7deg); }
+.coming-soon-card { display: grid; grid-template-columns: minmax(220px, .7fr) 1.3fr; gap: clamp(32px, 6vw, 90px); align-items: center; max-width: 1080px; margin: 0 auto; padding: clamp(32px, 5vw, 64px); border: var(--line); border-radius: 38px; background: white; box-shadow: 10px 10px 0 var(--ink); }
+.coming-soon-visual { position: relative; display: grid; min-height: 260px; place-items: center; border: var(--line); border-radius: 32px; background: var(--blue); background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px); background-size: 25px 25px; }
+.coming-soon-screen { width: min(65%, 210px); aspect-ratio: 1.25; display: grid; place-items: center; border: var(--line); border-radius: 20px; background: var(--cream); box-shadow: 6px 6px 0 var(--ink); transform: rotate(-4deg); }
+.coming-soon-icon { width: min(68%, 118px); height: auto; display: block; image-rendering: auto; }
+.coming-soon-spark { position: absolute; display: grid; place-items: center; width: 52px; height: 52px; border: var(--line); border-radius: 50%; background: var(--yellow); font-size: 26px; }
+.spark-one { top: 12%; left: 10%; transform: rotate(-12deg); }
+.spark-two { right: 8%; bottom: 11%; background: var(--green); transform: rotate(12deg); }
+.coming-soon-copy { max-width: 560px; }
+.coming-soon-copy .section-kicker { margin-bottom: 14px; }
+.coming-soon-copy h2 { margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1; letter-spacing: -.06em; }
+.coming-soon-copy > p:not(.section-kicker) { margin: 0; font-size: 16px; line-height: 1.9; }
+.coming-soon-lead { margin: 22px 0 14px !important; font-size: clamp(18px, 2vw, 25px) !important; font-weight: 900; line-height: 1.5 !important; }
+.coming-soon-status { display: inline-block; margin-top: 28px; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 99px; background: var(--green); font-size: 11px; letter-spacing: .08em; }
 .about { background: white; border-bottom: var(--line); }
 .section-kicker { color: #e45279; margin: 0 0 22px; }
 .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 9vw; align-items: end; }
@@ -156,11 +171,13 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 70px 28px 60px; }
   .hero-stage { border-left: 0; border-top: var(--line); min-height: 590px; }
-  .about-grid, .game-section, .links { grid-template-columns: 1fr; }
+  .about-grid, .game-section, .links, .coming-soon-card { grid-template-columns: 1fr; }
   .news-grid { grid-template-columns: 1fr 1fr; }
   .activity-grid { grid-template-columns: 1fr; gap: 34px; }
   .activity-card { min-height: 370px; transform: none !important; }
   .activity-icon { height: 120px; }
+  .coming-soon-card { gap: 34px; }
+  .coming-soon-visual { min-height: 220px; }
   .game-section { gap: 52px; }
   .game-intro { max-width: 600px; }
   .section-heading { align-items: flex-start; flex-direction: column; }
@@ -188,6 +205,10 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
   .game-hole { border-radius: 20px; }
   .game-controls { align-items: stretch; flex-direction: column; }
   .game-start { width: 100%; }
+  .coming-soon-label { top: 18px; right: 18px; padding: 9px 14px; font-size: 18px; }
+  .coming-soon-card { padding: 70px 24px 30px; border-radius: 28px; }
+  .coming-soon-visual { min-height: 190px; border-radius: 24px; }
+  .coming-soon-status { font-size: 9px; }
   .link-list a { grid-template-columns: 52px 1fr auto; padding: 15px; gap: 12px; }
   .link-icon { width: 48px; height: 48px; }
   .news-grid { grid-template-columns: 1fr; }
