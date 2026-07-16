@@ -147,7 +147,9 @@ export default function Home() {
         <div className="coming-soon-card">
           <div className="coming-soon-visual" aria-hidden="true">
             <span className="coming-soon-spark spark-one">✦</span>
-            <span className="coming-soon-screen">⌘</span>
+            <span className="coming-soon-screen">
+              <img className="coming-soon-icon" src="./snap2agent.ico" alt="" />
+            </span>
             <span className="coming-soon-spark spark-two">✦</span>
           </div>
           <div className="coming-soon-copy">

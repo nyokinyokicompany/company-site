@@ -64,6 +64,7 @@ test("Snap2Agentの公開予告欄がある", () => {
   assert.match(page, /AIチャットへ画面を貼り付けるWindowsツール/);
   assert.match(page, /MICROSOFT STORE 公開準備中/);
   assert.match(page, /href="#coming-soon"/);
+  assert.match(page, /src="\.\/snap2agent\.ico"/);
   assert.match(styles, /\.coming-soon-card/);
 });
 

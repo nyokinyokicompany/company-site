@@ -83,7 +83,8 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 .coming-soon-label { position: absolute; top: clamp(24px, 4vw, 54px); right: clamp(24px, 7vw, 110px); z-index: 1; padding: 12px 19px; border: var(--line); border-radius: 99px; background: var(--yellow); box-shadow: 4px 4px 0 var(--ink); font-size: clamp(18px, 2.4vw, 30px); font-weight: 900; transform: rotate(7deg); }
 .coming-soon-card { display: grid; grid-template-columns: minmax(220px, .7fr) 1.3fr; gap: clamp(32px, 6vw, 90px); align-items: center; max-width: 1080px; margin: 0 auto; padding: clamp(32px, 5vw, 64px); border: var(--line); border-radius: 38px; background: white; box-shadow: 10px 10px 0 var(--ink); }
 .coming-soon-visual { position: relative; display: grid; min-height: 260px; place-items: center; border: var(--line); border-radius: 32px; background: var(--blue); background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px); background-size: 25px 25px; }
-.coming-soon-screen { width: min(65%, 210px); aspect-ratio: 1.25; display: grid; place-items: center; border: var(--line); border-radius: 20px; background: var(--cream); box-shadow: 6px 6px 0 var(--ink); font-size: clamp(56px, 7vw, 86px); font-weight: 900; transform: rotate(-4deg); }
+.coming-soon-screen { width: min(65%, 210px); aspect-ratio: 1.25; display: grid; place-items: center; border: var(--line); border-radius: 20px; background: var(--cream); box-shadow: 6px 6px 0 var(--ink); transform: rotate(-4deg); }
+.coming-soon-icon { width: min(68%, 118px); height: auto; display: block; image-rendering: auto; }
 .coming-soon-spark { position: absolute; display: grid; place-items: center; width: 52px; height: 52px; border: var(--line); border-radius: 50%; background: var(--yellow); font-size: 26px; }
 .spark-one { top: 12%; left: 10%; transform: rotate(-12deg); }
 .spark-two { right: 8%; bottom: 11%; background: var(--green); transform: rotate(12deg); }
