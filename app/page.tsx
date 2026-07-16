@@ -56,6 +56,7 @@ export default function Home() {
         </a>
         <nav aria-label="メインメニュー">
           <a href="#news">新着</a>
+          <a href="#coming-soon">予告</a>
           <a href="#about">わたしたち</a>
           <a href="#activity">やっていること</a>
           <a href="#game">ミニゲーム</a>
@@ -72,6 +73,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button button-dark" href={youtubeUrl} target="_blank" rel="noreferrer">YouTubeを見る <span>↗</span></a>
             <a className="button button-light" href={lineUrl} target="_blank" rel="noreferrer">LINEスタンプを見る <span>↗</span></a>
+            <a className="button button-game" href="#game">ミニゲームで遊ぶ <span>↓</span></a>
           </div>
         </div>
 
@@ -101,6 +103,23 @@ export default function Home() {
         <div>PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW! &nbsp; PLAY! &nbsp; CREATE! &nbsp; GROW!</div>
       </section>
 
+      <section className="game-section" id="game">
+        <div className="game-intro">
+          <p className="section-kicker">MINI GAME</p>
+          <h2>ニョキっと<br />タッチ！</h2>
+          <p className="game-lead">20秒で、出てきた芽を<br />何本見つけられるかな？</p>
+          <div className="game-howto">
+            <span>1</span>
+            <p><strong>「あそぶ！」でスタート</strong><br />芽が出た場所をタッチしよう。</p>
+          </div>
+          <div className="game-howto">
+            <span>2</span>
+            <p><strong>パソコンは数字キーでもOK</strong><br />マスと同じ1〜9キーで遊べます。</p>
+          </div>
+        </div>
+        <MiniGame />
+      </section>
+
       <section className="news" id="news">
         <div className="section-heading news-heading">
           <div><p className="section-kicker">LATEST NEWS</p><h2>新着</h2></div>
@@ -120,6 +139,24 @@ export default function Home() {
               </div>
             </a>
           ))}
+        </div>
+      </section>
+
+      <section className="coming-soon" id="coming-soon">
+        <div className="coming-soon-label" aria-hidden="true">予告！</div>
+        <div className="coming-soon-card">
+          <div className="coming-soon-visual" aria-hidden="true">
+            <span className="coming-soon-spark spark-one">✦</span>
+            <span className="coming-soon-screen">⌘</span>
+            <span className="coming-soon-spark spark-two">✦</span>
+          </div>
+          <div className="coming-soon-copy">
+            <p className="section-kicker">WINDOWS APP</p>
+            <h2>Snap2Agent</h2>
+            <p className="coming-soon-lead">AIチャットへ画面を貼り付けるWindowsツール</p>
+            <p>画面を撮って、気になる場所に印をつけて、そのままAIチャットへ。Microsoft Store公開に向けて準備中です。</p>
+            <span className="coming-soon-status">MICROSOFT STORE 公開準備中</span>
+          </div>
         </div>
       </section>
 
@@ -149,23 +186,6 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="game-section" id="game">
-        <div className="game-intro">
-          <p className="section-kicker">MINI GAME</p>
-          <h2>ニョキっと<br />タッチ！</h2>
-          <p className="game-lead">20秒で、出てきた芽を<br />何本見つけられるかな？</p>
-          <div className="game-howto">
-            <span>1</span>
-            <p><strong>「あそぶ！」でスタート</strong><br />芽が出た場所をタッチしよう。</p>
-          </div>
-          <div className="game-howto">
-            <span>2</span>
-            <p><strong>パソコンは数字キーでもOK</strong><br />マスと同じ1〜9キーで遊べます。</p>
-          </div>
-        </div>
-        <MiniGame />
       </section>
 
       <section className="links" id="links">

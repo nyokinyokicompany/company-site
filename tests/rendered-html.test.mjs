@@ -58,6 +58,21 @@ test("YouTubeとLINEスタンプの新着欄がある", () => {
   assert.match(styles, /\.news-grid/);
 });
 
+test("Snap2Agentの公開予告欄がある", () => {
+  assert.match(page, /id="coming-soon"/);
+  assert.match(page, /Snap2Agent/);
+  assert.match(page, /AIチャットへ画面を貼り付けるWindowsツール/);
+  assert.match(page, /MICROSOFT STORE 公開準備中/);
+  assert.match(page, /href="#coming-soon"/);
+  assert.match(styles, /\.coming-soon-card/);
+});
+
+test("ミニゲームがページ上部から見つけやすい", () => {
+  assert.match(page, /ミニゲームで遊ぶ/);
+  assert.ok(page.indexOf('id="game"') < page.indexOf('id="news"'));
+  assert.match(styles, /\.button-game/);
+});
+
 test("新着の自動更新処理が設定されている", async () => {
   const updater = await readFile(new URL("../scripts/update-news.mjs", import.meta.url), "utf8");
   const workflow = await readFile(new URL("../.github/workflows/update-news.yml", import.meta.url), "utf8");
