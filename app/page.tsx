@@ -1,5 +1,6 @@
 import newsData from "./news-data.json";
 import MiniGame from "./mini-game";
+import VisitorCounter from "./visitor-counter";
 
 const youtubeUrl = "https://www.youtube.com/@hyakku_kuchihate";
 const lineUrl = "https://store.line.me/stickershop/author/6197622/ja";
@@ -218,7 +219,10 @@ export default function Home() {
             nyokinyokicompany@gmail.com
           </a>
         </div>
-        <p className="copyright">© 2026 NYOKI NYOKI COMPANY</p>
+        <div className="footer-meta">
+          <VisitorCounter />
+          <p className="copyright">© 2026 NYOKI NYOKI COMPANY</p>
+        </div>
       </footer>
     </main>
   );

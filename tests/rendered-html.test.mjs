@@ -6,6 +6,7 @@ const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8")
 const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
 const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 const miniGame = await readFile(new URL("../app/mini-game.tsx", import.meta.url), "utf8");
+const visitorCounter = await readFile(new URL("../app/visitor-counter.tsx", import.meta.url), "utf8");
 const news = JSON.parse(await readFile(new URL("../app/news-data.json", import.meta.url), "utf8"));
 
 test("会社名と主要な活動内容が用意されている", () => {
@@ -89,4 +90,15 @@ test("サイト内でミニゲームを遊べる", () => {
   assert.match(miniGame, /GAME_DURATION_SECONDS/);
   assert.match(miniGame, /\^\[1-9\]\$/);
   assert.match(styles, /\.game-board/);
+});
+
+test("フッターに控えめな本日・累計カウンターがある", () => {
+  assert.match(page, /<VisitorCounter \/>/);
+  assert.match(visitorCounter, /nyoki-visitor-counter\.hyakku1\.chatgpt\.site\/api\/visit/);
+  assert.match(visitorCounter, /TODAY/);
+  assert.match(visitorCounter, /TOTAL/);
+  assert.match(visitorCounter, /localStorage/);
+  assert.match(visitorCounter, /30 \* 60 \* 1000/);
+  assert.match(styles, /\.visitor-counter/);
+  assert.match(styles, /font-size: 8px/);
 });

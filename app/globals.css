@@ -163,6 +163,10 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
 .footer-contact a { display: inline-flex; flex-direction: column; gap: 4px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
 .footer-contact a:hover { color: var(--yellow); }
 .footer-contact small { color: var(--blue); font-size: 10px; letter-spacing: .12em; text-decoration: none; }
+.footer-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.visitor-counter { display: inline-flex; align-items: baseline; gap: 7px; color: rgba(255, 255, 255, .36); font-size: 8px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.visitor-counter b { min-width: 3ch; color: inherit; font-size: 9px; font-weight: 800; letter-spacing: .06em; text-align: right; }
+.visitor-counter i { font-style: normal; opacity: .65; }
 .copyright { font-size: 10px; letter-spacing: .1em; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker div, .game-sprout { animation: none; } * { transition: none !important; } }
@@ -182,6 +186,7 @@ footer { background: var(--ink); color: white; min-height: 250px; padding: 55px 
   .game-intro { max-width: 600px; }
   .section-heading { align-items: flex-start; flex-direction: column; }
   footer { grid-template-columns: 1fr; align-items: start; }
+  .footer-meta { align-items: flex-start; }
 }
 @media (max-width: 560px) {
   .site-header { min-height: 76px; padding-block: 5px; }
