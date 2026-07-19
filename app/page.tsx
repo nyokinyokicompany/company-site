@@ -149,13 +149,13 @@ export default function Home() {
           <div className="coming-soon-visual" aria-hidden="true">
             <span className="coming-soon-spark spark-one">✦</span>
             <span className="coming-soon-screen">
-              <img className="coming-soon-icon" src="./snap2agent.ico" alt="" />
+              <img className="coming-soon-icon" src="./AltAltAgent.ico" alt="" />
             </span>
             <span className="coming-soon-spark spark-two">✦</span>
           </div>
           <div className="coming-soon-copy">
             <p className="section-kicker">WINDOWS APP</p>
-            <h2>Snap2Agent</h2>
+            <h2>AltAltAgent</h2>
             <p className="coming-soon-lead">AIチャットへ画面を貼り付けるWindowsツール</p>
             <p>画面を撮って、気になる場所に印をつけて、そのままAIチャットへ。Microsoft Store公開に向けて準備中です。</p>
             <span className="coming-soon-status">MICROSOFT STORE 公開準備中</span>
