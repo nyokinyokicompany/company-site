@@ -59,9 +59,9 @@ test("YouTubeとLINEスタンプの新着欄がある", () => {
   assert.match(styles, /\.news-grid/);
 });
 
-test("Snap2Agentの公開予告欄がある", () => {
+test("AltAltAgentの公開予告欄がある", () => {
   assert.match(page, /id="coming-soon"/);
-  assert.match(page, /Snap2Agent/);
+  assert.match(page, /AltAltAgent/);
   assert.match(page, /AIチャットへ画面を貼り付けるWindowsツール/);
   assert.match(page, /MICROSOFT STORE 公開準備中/);
   assert.match(page, /href="#coming-soon"/);
