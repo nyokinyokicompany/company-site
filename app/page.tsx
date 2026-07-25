@@ -87,7 +87,7 @@ export default function Home() {
             <span className="card-tag">PLAY!</span>
             <span className="card-icon" aria-hidden="true">🎮</span>
             <span className="card-type">YOUTUBE CHANNEL</span>
-            <strong>ヒャックの<br />朽ち果てチャンネル</strong>
+            <strong>ニョキニョキチャンネル</strong>
             <span className="card-arrow">↗</span>
           </a>
           <a className="feature-card sticker-card" href={lineUrl} target="_blank" rel="noreferrer">
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
         </div>
         <div className="link-list">
-          <a href={youtubeUrl} target="_blank" rel="noreferrer"><span className="link-icon red">▶</span><span><small>GAME PLAY &amp; MORE</small><strong>ヒャックの朽ち果てチャンネル</strong></span><b>↗</b></a>
+          <a href={youtubeUrl} target="_blank" rel="noreferrer"><span className="link-icon red">▶</span><span><small>GAME PLAY &amp; MORE</small><strong>ニョキニョキチャンネル</strong></span><b>↗</b></a>
           <a href={lineUrl} target="_blank" rel="noreferrer"><span className="link-icon green">LINE</span><span><small>23 STICKER SERIES</small><strong>ニョキニョキカンパニー LINE STORE</strong></span><b>↗</b></a>
         </div>
       </section>

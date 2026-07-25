@@ -20,6 +20,12 @@ test("YouTubeとLINE STOREへのリンクが正しい", () => {
   assert.match(page, /store\.line\.me\/stickershop\/author\/6197622\/ja/);
 });
 
+test("YouTubeチャンネル名がニョキニョキチャンネルに統一されている", () => {
+  const channelNameMatches = page.match(/ニョキニョキチャンネル/g) ?? [];
+  assert.equal(channelNameMatches.length, 2);
+  assert.doesNotMatch(page, /ヒャックの.*朽ち果てチャンネル/s);
+});
+
 test("YouTubeの公式チャンネル登録ボタンがある", () => {
   assert.match(page, /g-ytsubscribe/);
   assert.match(page, /data-channelid="UC0WeQ11dZOLgP1xM8h24q0w"/);
