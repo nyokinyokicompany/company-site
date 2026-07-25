@@ -148,6 +148,8 @@ h1 strong { color: #ec557d; font-weight: inherit; position: relative; white-spac
 
 .links { background: var(--green); display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; align-items: center; border-bottom: var(--line); }
 .links-copy > p:last-child { font-size: 14px; line-height: 1.9; margin-top: 28px; }
+.youtube-subscribe { display: inline-flex; flex-direction: column; gap: 10px; margin-top: 28px; padding: 16px 18px; border: var(--line); border-radius: 20px; background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); }
+.youtube-subscribe p { margin: 0; font-size: 13px; line-height: 1.5; }
 .link-list { display: grid; gap: 18px; }
 .link-list a { background: white; border: var(--line); border-radius: 20px; padding: 22px; display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 18px; box-shadow: 6px 6px 0 var(--ink); transition: transform .2s; }
 .link-list a:hover { transform: translate(-3px, -3px); }

@@ -20,6 +20,13 @@ test("YouTubeとLINE STOREへのリンクが正しい", () => {
   assert.match(page, /store\.line\.me\/stickershop\/author\/6197622\/ja/);
 });
 
+test("YouTubeの公式チャンネル登録ボタンがある", () => {
+  assert.match(page, /g-ytsubscribe/);
+  assert.match(page, /data-channelid="UC0WeQ11dZOLgP1xM8h24q0w"/);
+  assert.match(page, /apis\.google\.com\/js\/platform\.js/);
+  assert.match(styles, /\.youtube-subscribe/);
+});
+
 test("日本語と共有画像の設定がある", () => {
   assert.match(layout, /<html lang="ja">/);
   assert.match(layout, /\/og\.png/);

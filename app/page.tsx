@@ -1,3 +1,4 @@
+import Script from "next/script";
 import newsData from "./news-data.json";
 import MiniGame from "./mini-game";
 import VisitorCounter from "./visitor-counter";
@@ -196,6 +197,15 @@ export default function Home() {
           <p className="section-kicker">OUR CONTENTS</p>
           <h2>いま育っている<br />コンテンツ</h2>
           <p>動画やスタンプは、これからも増えていきます。<br />気になる場所からのぞいてみてください。</p>
+          <div className="youtube-subscribe">
+            <p>動画が気に入ったら、チャンネル登録してね！</p>
+            <div
+              className="g-ytsubscribe"
+              data-channelid="UC0WeQ11dZOLgP1xM8h24q0w"
+              data-layout="full"
+              data-count="default"
+            />
+          </div>
         </div>
         <div className="link-list">
           <a href={youtubeUrl} target="_blank" rel="noreferrer"><span className="link-icon red">▶</span><span><small>GAME PLAY &amp; MORE</small><strong>ヒャックの朽ち果てチャンネル</strong></span><b>↗</b></a>
@@ -224,6 +234,7 @@ export default function Home() {
           <p className="copyright">© 2026 NYOKI NYOKI COMPANY</p>
         </div>
       </footer>
+      <Script src="https://apis.google.com/js/platform.js" strategy="afterInteractive" />
     </main>
   );
 }
