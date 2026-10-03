@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { runInNewContext } from "node:vm";
+import { load } from "js-yaml";
 
 const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
@@ -94,6 +96,40 @@ test("新着の自動更新処理が設定されている", async () => {
   assert.match(updater, /feeds\/videos\.xml/);
   assert.match(updater, /stickershop\/author\/6197622/);
   assert.match(workflow, /cron:/);
+});
+
+test("新着の自動保存後はpush通知に頼らず公開処理が起動する", async () => {
+  const updater = load(await readFile(new URL("../.github/workflows/update-news.yml", import.meta.url), "utf8"));
+  const deploy = load(await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8"));
+  assert.ok(updater.on.schedule.length > 0);
+  assert.deepEqual(deploy.on.workflow_run?.workflows, [updater.name]);
+  assert.deepEqual(deploy.on.workflow_run.types, ["completed"]);
+  assert.deepEqual(deploy.on.workflow_run.branches, ["main"]);
+});
+
+test("新着取得の成功時だけ公開し通常更新と手動公開も維持する", async () => {
+  const deploy = load(await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8"));
+  const condition = deploy.jobs.deploy.if;
+  assert.equal(typeof condition, "string");
+  // この条件式で使う比較と論理演算はJavaScriptと共通なので、イベント別に実行して確かめる。
+  const expression = condition.replace(/^\s*\$\{\{([\s\S]*)\}\}\s*$/, "$1");
+  const canDeploy = (eventName, conclusion) => runInNewContext(expression, {
+    github: { event_name: eventName, event: { workflow_run: { conclusion } } },
+  }, { timeout: 1000 });
+  assert.equal(canDeploy("workflow_run", "success"), true);
+  for (const conclusion of ["failure", "cancelled", "skipped", "timed_out"]) {
+    assert.equal(canDeploy("workflow_run", conclusion), false, conclusion);
+  }
+  assert.deepEqual(deploy.on.push.branches, ["main"]);
+  assert.ok(Object.hasOwn(deploy.on, "workflow_dispatch"));
+  assert.equal(canDeploy("push"), true);
+  assert.equal(canDeploy("workflow_dispatch"), true);
+});
+
+test("公開時は新着保存前の履歴ではなく更新後のmainを取得する", async () => {
+  const deploy = load(await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8"));
+  const checkout = deploy.jobs.deploy.steps.find((step) => step.uses?.startsWith("actions/checkout@"));
+  assert.equal(checkout?.with?.ref, "main");
 });
 
 test("サイト内でミニゲームを遊べる", () => {

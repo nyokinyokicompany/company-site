@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # 自動更新のpushは別の処理を起動しないため、更新処理の完了を合図にする。
+  workflow_run:
+    workflows: ["新着情報を自動更新"]
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
@@ -17,6 +22,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -24,6 +30,9 @@ jobs:
     steps:
       - name: ソースを取得
         uses: actions/checkout@v4
+        with:
+          # 新着の保存後に進んだmainを使い、更新処理の開始時点へ戻さない。
+          ref: main
       - name: Node.jsを準備
         uses: actions/setup-node@v4
         with:
